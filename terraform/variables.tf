@@ -4,7 +4,6 @@
 locals {
 
   application = "APPLICATION"
-  application_one_word = "APPLICATION"
 
   common_tags = {
     owner       = "AUTHOR" 

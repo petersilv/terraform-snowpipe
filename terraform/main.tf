@@ -29,7 +29,6 @@ module "aws_s3" {
   source = "./modules/aws_s3"
 
   application          = local.application
-  application_one_word = local.application_one_word
   common_tags          = local.common_tags
 
 }
@@ -39,7 +38,6 @@ module "sno_integration" {
   source = "./modules/sno_integration"
 
   application          = local.application
-  application_one_word = local.application_one_word
   common_tags          = local.common_tags
 
   snowflake_database = local.snowflake_database
@@ -56,7 +54,6 @@ module "sno_pipe" {
   source = "./modules/sno_pipe"
 
   application          = local.application
-  application_one_word = local.application_one_word
 
   snowflake_database = local.snowflake_database
   snowflake_schema   = local.snowflake_schema

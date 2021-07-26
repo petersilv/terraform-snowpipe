@@ -3,7 +3,7 @@
 
 resource "aws_s3_bucket" "s3_bucket" {
 
-  bucket = "${var.application_one_word}"
+  bucket = "${var.application}"
   acl    = "private"
   tags   = var.common_tags
 

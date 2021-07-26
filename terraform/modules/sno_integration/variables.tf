@@ -3,7 +3,7 @@
 
 locals {
 
-  snowflake_application = upper(var.application_one_word)
+  snowflake_application = upper(var.application)
 
 }
 
@@ -11,10 +11,6 @@ locals {
 # Variables
 
 variable "application" {
-  type = string
-}
-
-variable "application_one_word" {
   type = string
 }
 
