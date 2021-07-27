@@ -3,14 +3,16 @@
 
 locals {
 
-  snowflake_table       = upper(var.table_name)
+  database = upper(var.snowflake_database)
+  schema   = upper(var.snowflake_schema)
+  table    = upper(var.table_name)
 
 }
 
 # ----------------------------------------------------------------------------------------------------------------------
 # Variables
 
-variable "application" {
+variable "application_name" {
   type = string
 }
 
@@ -26,7 +28,7 @@ variable "snowflake_stage" {
   type = string
 }
 
-variable "stage_folder" {
+variable "pipe_prefix" {
   type = string
 }
 

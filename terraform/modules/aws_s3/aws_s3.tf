@@ -3,13 +3,13 @@
 
 resource "aws_s3_bucket" "s3_bucket" {
 
-  bucket = "${var.application}"
+  bucket = "${var.s3_bucket_unique_identifier}-${var.application_name}"
   acl    = "private"
   tags   = var.common_tags
 
   lifecycle_rule {
     id      = "delete-after-90-days"
-    prefix  = "data/"
+    prefix  = ""
     enabled = true
 
     expiration {

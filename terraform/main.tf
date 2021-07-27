@@ -28,8 +28,9 @@ provider "snowflake" {
 module "aws_s3" {
   source = "./modules/aws_s3"
 
-  application          = local.application
-  common_tags          = local.common_tags
+  s3_bucket_unique_identifier = var.s3_bucket_unique_identifier
+  application_name            = var.application_name
+  common_tags                 = local.common_tags
 
 }
 
@@ -37,11 +38,12 @@ module "aws_s3" {
 module "sno_integration" {
   source = "./modules/sno_integration"
 
-  application          = local.application
-  common_tags          = local.common_tags
+  application_name = var.application_name
+  common_tags      = local.common_tags
 
-  snowflake_database = local.snowflake_database
-  snowflake_schema   = local.snowflake_schema
+  snowflake_database = var.snowflake_database
+  snowflake_schema   = var.snowflake_schema
+  stage_prefix       = var.stage_prefix
 
   aws_account_id    = local.aws_account_id
   aws_s3_bucket_id  = module.aws_s3.aws_s3_bucket_id
@@ -53,15 +55,14 @@ module "sno_integration" {
 module "sno_pipe" {
   source = "./modules/sno_pipe"
 
-  application          = local.application
+  application_name = var.application_name
 
-  snowflake_database = local.snowflake_database
-  snowflake_schema   = local.snowflake_schema
+  snowflake_database = var.snowflake_database
+  snowflake_schema   = var.snowflake_schema
   snowflake_stage    = module.sno_integration.snowflake_stage
+  pipe_prefix        = var.pipe_prefix
+  table_name         = var.table_name
 
-  stage_folder = "FOLDER"
-  table_name   = "TABLE"
-
-  aws_s3_bucket_id = module.aws_s3.aws_s3_bucket_id
+  aws_s3_bucket_id  = module.aws_s3.aws_s3_bucket_id
 
 }

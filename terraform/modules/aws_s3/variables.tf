@@ -1,7 +1,11 @@
 # ----------------------------------------------------------------------------------------------------------------------
 # Variables
 
-variable "application" {
+variable "s3_bucket_unique_identifier" {
+  type = string
+}
+
+variable "application_name" {
   type = string
 }
 
