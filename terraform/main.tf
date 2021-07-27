@@ -16,12 +16,12 @@ terraform {
 }
 
 provider "aws" {
-  profile = "terraform"
-  region  = "eu-west-2"
+  profile = var.aws_profile
+  region  = var.aws_region
 }
 
 provider "snowflake" {
-  role = "SYSADMIN"
+  role = var.snowflake_role
 }
 
 # ----------------------------------------------------------------------------------------------------------------------

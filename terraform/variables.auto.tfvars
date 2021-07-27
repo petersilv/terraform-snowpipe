@@ -11,6 +11,13 @@ application_name = ""
 # ----------------------------------------------------------------------------------------------------------------------
 # AWS
 
+
+aws_profile = ""
+# Description: The name of the AWS profile name as set in the shared credentials file.
+
+aws_region = ""
+# Description: The region in which the AWS resources will be deployed.
+
 s3_bucket_unique_identifier = ""
 # Description: The S3 bucket will be named with the pattern "{unique_identifier}-{application_name}", this is necessary 
 # as S3 buckets must be globally unqiue.
@@ -18,6 +25,11 @@ s3_bucket_unique_identifier = ""
 
 # ----------------------------------------------------------------------------------------------------------------------
 # Snowflake
+
+
+snowflake_role = ""
+# Description: The name of the role that will deploy the Pipe, the role must have privileges on the chosen database and 
+# have been granted the account level \"CREATE INTEGRATION\" privilege.
 
 snowflake_database = ""
 # Description: The name of the database that the Pipe will be added to (must already exist).
@@ -37,7 +49,3 @@ pipe_prefix = ""
 
 table_name = ""
 # Description: The name of the table that the Pipe will write to.
-
-
-
-

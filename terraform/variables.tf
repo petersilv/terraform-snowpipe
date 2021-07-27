@@ -9,6 +9,16 @@ variable "application_name" {
 # ----------------------------------------------------------------------------------------------------------------------
 # AWS
 
+variable "aws_profile" {
+  type        = string
+  description = "The name of the AWS profile name as set in the shared credentials file."
+}
+
+variable "aws_region" {
+  type        = string
+  description = "The region in which the AWS resources will be deployed."
+}
+
 variable "s3_bucket_unique_identifier" {
   type        = string
   description = "The S3 bucket will be named with the pattern \"{unique_identifier}-{application_name}\", this is necessary as S3 buckets must be globally unqiue."
@@ -16,6 +26,11 @@ variable "s3_bucket_unique_identifier" {
 
 # ----------------------------------------------------------------------------------------------------------------------
 # Snowflake
+
+variable "snowflake_role" {
+  type        = string
+  description = "The name of the role that will deploy the Pipe, the role must have privileges on the chosen database and have been granted the account level \"CREATE INTEGRATION\" privilege."
+}
 
 variable "snowflake_database" {
   type        = string
