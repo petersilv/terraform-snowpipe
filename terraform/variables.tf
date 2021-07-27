@@ -55,8 +55,8 @@ locals {
 
   common_tags = {
     application_name = var.application_name
-    owner            = local.aws_caller_user
-    created_by       = "Terraform"
+    owner_arn        = local.aws_caller_arn
+    created_with     = "Terraform"
   }
 
 }
