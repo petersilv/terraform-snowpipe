@@ -60,6 +60,7 @@ module "sno_pipe" {
   snowflake_database = var.snowflake_database
   snowflake_schema   = var.snowflake_schema
   snowflake_stage    = module.sno_integration.snowflake_stage
+  stage_prefix       = var.stage_prefix
   pipe_prefix        = var.pipe_prefix
   table_name         = var.table_name
 

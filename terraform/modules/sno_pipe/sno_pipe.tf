@@ -72,7 +72,9 @@ resource "aws_s3_bucket_notification" "bucket_notification" {
 
   bucket = var.aws_s3_bucket_id
 
-  queue {
+  queue {    
+    id = lower("snowflake-sqs-${local.table}")
+    filter_prefix = local.s3_prefix
     queue_arn = snowflake_pipe.pipe.notification_channel
     events    = ["s3:ObjectCreated:*"]
   }

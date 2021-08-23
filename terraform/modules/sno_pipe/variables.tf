@@ -6,6 +6,7 @@ locals {
   database = upper(var.snowflake_database)
   schema   = upper(var.snowflake_schema)
   table    = upper(var.table_name)
+  s3_prefix = join("", [var.stage_prefix, var.pipe_prefix])
 
 }
 
@@ -25,6 +26,10 @@ variable "snowflake_schema" {
 }
 
 variable "snowflake_stage" {
+  type = string
+}
+
+variable "stage_prefix" {
   type = string
 }
 
